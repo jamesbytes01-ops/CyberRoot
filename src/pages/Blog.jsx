@@ -6,10 +6,9 @@ import blogPosts from '../data/blog.json';
 
 const CATEGORIES = [
   'All',
+  'Webroot Analysis',
   'Research Whitepaper',
   'Free E-Book Guide',
-  'Webroot Analysis',
-  'Antivirus',
   'Threat Intelligence',
   'Malware',
   'Ransomware',

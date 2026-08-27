@@ -11,8 +11,9 @@ const booksData = Object.values(bookModules).map(mod => mod.default || mod);
 import { BookCard } from '../components/cards/BookCard';
 import { Button } from '../components/ui/Button';
 import { HeroIllustration } from '../components/layout/HeroIllustration';
+import { WebrootArchitectureSvg } from '../components/ui/WebrootArchitectureSvg';
 import { BookCover } from '../utils/svgGenerator';
-import heroDarkBg from '../assets/hero-webroot-bg.png';
+import heroSocCenter from '../assets/hero-soc-center.jpg';
 import promoEbookImage from '../assets/promo-real-books.png';
 
 export default function Home() {
@@ -69,86 +70,86 @@ export default function Home() {
   // Testimonials list (12 items for 4 slides)
   const testimonials = [
     {
-      quote: "CyberRoot has the best collection of cybersecurity e-books. The quality and instant access are excellent.",
-      name: "Rohit Sharma",
-      role: "Security Analyst",
+      quote: "CyberRoot provides unmatched technical depth. The advanced exploit dev and threat hunting guides have become standard reference material for our entire security team.",
+      name: "Alex Mercer",
+      role: "Principal Security Architect",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/men/32.jpg"
     },
     {
-      quote: "Great prices, original e-books and instant downloads. My go-to store for all tech books!",
-      name: "Sneha Verma",
-      role: "Penetration Tester",
+      quote: "Instant PDF downloads, impeccable formatting, and top-tier authors. CyberRoot is my primary source for offensive security playbooks.",
+      name: "Elena Rostova",
+      role: "Senior Penetration Tester",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/women/44.jpg"
     },
     {
-      quote: "I found books here that were out of stock everywhere else. Highly recommended!",
-      name: "Ankit Patel",
-      role: "Cybersecurity Student",
+      quote: "Finding reliable, up-to-date threat intel and digital forensics literature used to take hours. CyberRoot curates only the best technical titles.",
+      name: "Marcus Vance",
+      role: "Head of Incident Response",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/men/22.jpg"
     },
     {
-      quote: "An essential resource for any blue teamer. The defensive playbooks are top notch.",
+      quote: "An essential resource for blue team operators. The AWS & Kubernetes security architecture guides are practical and immediately actionable.",
       name: "David K.",
-      role: "Security Engineer",
+      role: "Cloud Security Engineer",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/men/60.jpg"
     },
     {
-      quote: "I passed my OSCP thanks to the materials I found here. Highly recommend!",
-      name: "Sarah L.",
-      role: "Penetration Tester",
+      quote: "I recommend CyberRoot to all junior analysts on my team. The code-level vulnerability assessment books are second to none.",
+      name: "Sarah Lin",
+      role: "Lead Application Security Specialist",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/women/68.jpg"
     },
     {
-      quote: "The quality of these e-books is unmatched. Instant access and great customer service.",
-      name: "Michael T.",
-      role: "CISO",
+      quote: "CyberRoot's enterprise collection has helped us establish robust compliance frameworks and modern defense strategies across our organization.",
+      name: "Michael Thorne",
+      role: "Chief Information Security Officer (CISO)",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/men/75.jpg"
     },
     {
-      quote: "CyberRoot is my secret weapon for staying ahead of the latest threats.",
-      name: "Elena R.",
-      role: "Threat Hunter",
+      quote: "A treasure trove for serious cryptography and reverse engineering work. The depth of low-level technical knowledge here is outstanding.",
+      name: "Dr. Vikram Seth",
+      role: "Cryptography Researcher",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/women/33.jpg"
     },
     {
-      quote: "Finally, a bookstore that understands what security professionals actually need.",
-      name: "James B.",
+      quote: "The physical security and social engineering guides provided crucial insights for our adversary simulation engagements.",
+      name: "James Bennett",
       role: "Red Team Lead",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/men/82.jpg"
     },
     {
-      quote: "The curated bundles save me so much time when onboarding new analysts.",
-      name: "Amanda W.",
-      role: "SOC Manager",
+      quote: "Curated e-book bundles save our onboarding team countless hours. New hires get up to speed on malware analysis in record time.",
+      name: "Amanda Wright",
+      role: "SOC Operations Manager",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/women/12.jpg"
     },
     {
-      quote: "Unbelievable depth of knowledge. The malware analysis books are incredibly detailed.",
-      name: "Robert C.",
-      role: "Reverse Engineer",
+      quote: "The reverse engineering and binary analysis titles are exceptionally detailed. Real-world samples and clear walkthroughs throughout.",
+      name: "Robert Chen",
+      role: "Reverse Engineer & Malware Analyst",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/men/45.jpg"
     },
     {
-      quote: "I buy all my certification study guides here. Always up-to-date editions.",
-      name: "Kevin M.",
-      role: "Cyber Student",
+      quote: "From OSCP prep to advanced kernel exploitation, every book I've purchased here has delivered exceptional value.",
+      name: "Kevin Miller",
+      role: "Cybersecurity Researcher",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/men/86.jpg"
     },
     {
-      quote: "A treasure trove for anyone serious about cryptography and low-level security.",
-      name: "Dr. Lisa H.",
-      role: "Crypto Researcher",
+      quote: "Finally a platform built specifically for security engineers. Seamless purchase, zero DRM friction, and top-quality technical writing.",
+      name: "Lisa H.",
+      role: "DevSecOps Architect",
       stars: 5,
       avatar: "https://randomuser.me/api/portraits/women/26.jpg"
     }
@@ -181,15 +182,15 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. HERO SECTION */}
-      <section 
-        className="relative overflow-hidden border-b border-slate-900 min-h-[calc(100vh-80px)] flex items-center bg-[#090d16]"
-        style={{
-          backgroundImage: `linear-gradient(180deg, rgba(9, 13, 22, 0.2) 0%, rgba(9, 13, 22, 0.4) 100%), url(${heroDarkBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <section className="relative overflow-hidden border-b border-slate-900 min-h-[calc(100vh-80px)] flex items-center bg-[#090d16] w-full">
+        {/* Full-width 100% Screen Edge-to-Edge Background Image */}
+        <img 
+          src={heroSocCenter} 
+          alt="Cyber Security Operations Center" 
+          className="absolute inset-0 w-full h-full object-cover object-center scale-105 pointer-events-none select-none"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#090d16]/50 via-[#090d16]/70 to-[#090d16]/90 pointer-events-none" />
+
         <div className="w-full max-w-[92%] xl:max-w-[1600px] mx-auto px-4 md:px-8 relative z-10 flex justify-center py-12">
           <div className="flex flex-col items-center text-center gap-6 max-w-4xl">
             {/* Trust Badge */}
@@ -447,58 +448,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. FEATURED BOOKS SECTION */}
-      <section className="pt-16 pb-24 bg-white overflow-hidden flex flex-col">
-        <div className="w-full max-w-[95%] xl:max-w-[1600px] mx-auto px-4 md:px-8 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
-              <Star className="w-3.5 h-3.5 text-amber-500" />
-              Top Rated
-            </div>
-            <h2 className="text-3xl md:text-4xl font-display font-medium text-slate-900 tracking-tighter mb-4">
-              Featured Releases
-            </h2>
-            <p className="text-lg text-slate-500 leading-relaxed">
-              The most critical new playbooks and best-sellers, trusted by thousands of security teams globally.
-            </p>
-          </div>
-          <div className="flex items-center gap-4 hidden sm:flex">
-            <Link to="/books" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-200 text-slate-700 font-semibold hover:border-slate-300 hover:bg-slate-50 transition-all">
-              View Entire Library
-            </Link>
-          </div>
-        </div>
 
-        <div className="w-full max-w-[95%] xl:max-w-[1600px] mx-auto px-4 md:px-8">
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            className="flex gap-6 overflow-x-auto pb-12 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-          >
-            {featuredBooks.map((book) => (
-              <motion.div 
-                key={book.id} 
-                variants={itemVariants}
-                className="w-[85vw] sm:w-[340px] md:w-[320px] lg:w-[300px] xl:w-[320px] flex-shrink-0 snap-start"
-              >
-                <BookCard book={book} />
-              </motion.div>
-            ))}
-            
-            {/* View All Card */}
-            <motion.div variants={itemVariants} className="w-[200px] flex-shrink-0 snap-start flex items-center justify-center p-6">
-              <Link to="/books" className="group flex flex-col items-center gap-4 text-slate-400 hover:text-indigo-600 transition-colors">
-                <div className="w-14 h-14 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-indigo-50 group-hover:border-indigo-200 transition-all">
-                  <ArrowRight className="w-6 h-6 stroke-[1.5]" />
-                </div>
-                <span className="font-bold uppercase tracking-widest text-sm">See All E-Books</span>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* 4.5. FREE E-BOOKS SHOWCASE */}
       <section className="py-20 bg-slate-50 border-y border-slate-200 text-slate-900">
@@ -571,36 +521,8 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="relative">
-            <div className="absolute inset-0 bg-emerald-500/10 blur-3xl rounded-full" />
-            <div className="bg-slate-900 rounded-[32px] border border-slate-800 p-8 relative z-10 shadow-xl text-white">
-              <div className="flex justify-between items-center mb-6 pb-6 border-b border-slate-800">
-                <div className="flex flex-col">
-                  <span className="text-white font-bold text-lg">Webroot SecureAnywhere</span>
-                  <span className="text-slate-400 text-xs font-semibold">Cloud Threat Analysis Engine</span>
-                </div>
-                <div className="flex gap-1 text-amber-400">
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-slate-950/60 rounded-2xl p-4 border border-slate-800">
-                  <span className="text-slate-400 text-xs uppercase tracking-wider block mb-1">Behavioral Speed</span>
-                  <span className="text-emerald-400 font-bold text-xl">20x Faster</span>
-                </div>
-                <div className="bg-slate-950/60 rounded-2xl p-4 border border-slate-800">
-                  <span className="text-slate-400 text-xs uppercase tracking-wider block mb-1">RAM Footprint</span>
-                  <span className="text-emerald-400 font-bold text-xl">&lt; 2 MB</span>
-                </div>
-              </div>
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed font-mono">
-                [SYSTEM] Webroot Endpoint Agent: Cloud threat query completed in 0.04s. Zero malware signatures detected on host.
-              </div>
-            </div>
+          <div className="relative w-full">
+            <WebrootArchitectureSvg />
           </div>
         </div>
       </section>
@@ -663,10 +585,10 @@ export default function Home() {
         <div className="w-full max-w-3xl mx-auto px-4 md:px-8 mb-12 flex flex-col items-center text-center gap-6">
           <div>
             <h2 className="text-3xl md:text-4xl font-display font-medium text-slate-900 tracking-tighter mb-4">
-              Trusted by the best.
+              Trusted by Security Leaders
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed">
-              Security professionals rely on CyberRoot for their critical knowledge.
+              Top cybersecurity engineers, blue team operators, and researchers rely on CyberRoot.
             </p>
           </div>
           

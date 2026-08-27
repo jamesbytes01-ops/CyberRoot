@@ -1,5 +1,5 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { Suspense, lazy, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -15,8 +15,21 @@ const LegalDoc = lazy(() => import('./pages/LegalDoc'));
 const SignIn = lazy(() => import('./pages/SignIn'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const AntivirusEducation = lazy(() => import('./pages/AntivirusEducation'));
+const ResearchDetail = lazy(() => import('./pages/ResearchDetail'));
+const CveDatabase = lazy(() => import('./pages/CveDatabase'));
+const SecurityTools = lazy(() => import('./pages/SecurityTools'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogArticle = lazy(() => import('./pages/BlogArticle'));
+const Categories = lazy(() => import('./pages/Categories'));
 
-// Admin Pages removed in favor of Decap CMS
+// Automatic Scroll To Top on Route Change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 // Storefront Wrapper
 function StorefrontLayout({ children }) {
@@ -48,6 +61,7 @@ function PageLoader() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <CartProvider>
         <Suspense fallback={<PageLoader />}>
           <Routes>
@@ -58,13 +72,21 @@ export default function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/books" element={<Books />} />
                   <Route path="/book/:id" element={<BookDetails />} />
+                  <Route path="/categories" element={<Categories />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/legal/:docKey" element={<LegalDoc />} />
                   <Route path="/signin" element={<SignIn />} />
                   <Route path="/resources/faq" element={<FAQ />} />
+                  <Route path="/resources/cve-database" element={<CveDatabase />} />
+                  <Route path="/resources/tools" element={<SecurityTools />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<BlogArticle />} />
+                  <Route path="/research/:id" element={<ResearchDetail />} />
                   <Route path="/antivirus-education" element={<AntivirusEducation />} />
+                  <Route path="/antivirus_education" element={<AntivirusEducation />} />
+                  <Route path="/webroot-research" element={<AntivirusEducation />} />
                   <Route path="*" element={
                     <div className="max-w-7xl mx-auto px-6 py-24 text-center">
                       <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight">404 - Not Found</h1>

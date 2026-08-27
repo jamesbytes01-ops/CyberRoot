@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { ShoppingBag, Search, Menu, X, ShieldCheck, User, ChevronDown } from 'lucide-react';
+import { 
+  ShoppingBag, Search, Menu, X, ShieldCheck, User, ChevronDown,
+  ShieldAlert, Terminal, FileText, HelpCircle 
+} from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { Button } from '../ui/Button';
 
@@ -44,8 +47,30 @@ export function Navbar() {
   ];
 
   const resources = [
-    { to: '/antivirus-education', label: 'Webroot Security Hub' },
-    { to: '/resources/faq', label: 'FAQ & Free Downloads' }
+    { 
+      to: '/resources/cve-database', 
+      label: 'CVE Threat & Vulnerability Matrix', 
+      description: 'Advisories, CVSS vectors & shield mitigations',
+      icon: ShieldAlert
+    },
+    { 
+      to: '/resources/tools', 
+      label: 'Security Analyst Utility Suite', 
+      description: 'Payload encoder, YARA rules & entropy tools',
+      icon: Terminal
+    },
+    { 
+      to: '/blog', 
+      label: 'Cybersecurity Blog & Intelligence', 
+      description: 'Original research papers & technical guides',
+      icon: FileText
+    },
+    { 
+      to: '/resources/faq', 
+      label: 'Knowledge Base & FAQ', 
+      description: 'DRM-free e-books & purchase support',
+      icon: HelpCircle
+    }
   ];
 
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
@@ -93,23 +118,36 @@ export function Navbar() {
             onMouseEnter={() => setIsResourcesOpen(true)}
             onMouseLeave={() => setIsResourcesOpen(false)}
           >
-            <button className={`text-sm font-medium transition-colors hover:text-white relative py-1 flex items-center gap-1 whitespace-nowrap ${location.pathname.startsWith('/resources') ? 'text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-emerald-400 after:rounded-full' : 'text-slate-400'}`}>
+            <button className={`text-sm font-medium transition-colors hover:text-white relative py-1 flex items-center gap-1 whitespace-nowrap ${location.pathname.startsWith('/resources') || location.pathname === '/blog' ? 'text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-emerald-400 after:rounded-full' : 'text-slate-400'}`}>
               Resources <ChevronDown className="w-3.5 h-3.5" />
             </button>
             
             {isResourcesOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-56 animate-fade-in z-50">
-                <div className="bg-[#0a0a0a] rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] border border-white/10 p-2 flex flex-col">
-                  {resources.map((link) => (
-                    <Link
-                      key={link.to}
-                      to={link.to}
-                      className="px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors font-medium text-left whitespace-nowrap"
-                      onClick={() => setIsResourcesOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[360px] animate-fade-in z-50">
+                <div className="bg-[#0b0f19] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10 p-2.5 flex flex-col gap-1 backdrop-blur-2xl">
+                  {resources.map((link) => {
+                    const Icon = link.icon;
+                    return (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        className="p-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-200 flex items-start gap-3 group text-left"
+                        onClick={() => setIsResourcesOpen(false)}
+                      >
+                        <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500/20 group-hover:border-emerald-400/50 transition-colors shrink-0 mt-0.5">
+                          <Icon className="w-4.5 h-4.5" />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                            {link.label}
+                          </span>
+                          <span className="text-xs text-slate-400 leading-snug font-normal mt-0.5">
+                            {link.description}
+                          </span>
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             )}
