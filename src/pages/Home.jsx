@@ -216,15 +216,13 @@ export default function Home() {
             </p>
             
             <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
-              <Link to="/books" className="relative group inline-block">
-                {/* Glowing border/pulse effect behind CTA */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-teal-300 rounded-xl blur opacity-30 group-hover:opacity-70 transition duration-500 animate-pulse"></div>
-                <Button variant="accent" size="lg" className="pl-6 pr-5 bg-emerald-500 text-slate-950 font-bold border-none hover:bg-emerald-400">
+              <Link to="/books">
+                <Button variant="accent" size="lg" className="px-7 py-3.5 bg-emerald-500 text-slate-950 font-bold border-none hover:bg-emerald-400 shadow-lg">
                   <Download className="w-4 h-4 mr-2 inline" /> Browse 100% Free E-Books
                 </Button>
               </Link>
               <Link to="/antivirus-education">
-                <Button variant="outline" size="lg" className="px-7 py-3 bg-white/10 text-white border-white/30 hover:bg-white/20 backdrop-blur-md font-semibold">
+                <Button variant="outline" size="lg" className="px-7 py-3.5 bg-white/10 text-white border-white/30 hover:bg-white/20 backdrop-blur-md font-semibold">
                   Webroot Research
                 </Button>
               </Link>

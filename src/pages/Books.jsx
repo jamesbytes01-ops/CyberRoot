@@ -77,11 +77,14 @@ export default function Books() {
 
   // Main filter and sorting logic
   const filteredBooks = useMemo(() => {
-    let result = [...booksData];
+    let result = Array.isArray(booksData) ? [...booksData] : [];
+
+    // Filter out invalid items
+    result = result.filter(b => b && typeof b === 'object' && b.title);
 
     // 0. Free filter toggle
     if (onlyFree) {
-      result = result.filter((b) => b.price === 0);
+      result = result.filter((b) => Number(b.price || 0) === 0);
     }
 
     // 1. Text Search
@@ -89,10 +92,10 @@ export default function Books() {
       const q = searchQuery.toLowerCase();
       result = result.filter(
         (b) =>
-          b.title.toLowerCase().includes(q) ||
-          b.author.toLowerCase().includes(q) ||
-          b.description.toLowerCase().includes(q) ||
-          b.category.toLowerCase().includes(q)
+          (b.title || '').toLowerCase().includes(q) ||
+          (b.author || '').toLowerCase().includes(q) ||
+          (b.description || '').toLowerCase().includes(q) ||
+          (b.category || '').toLowerCase().includes(q)
       );
     }
 
@@ -107,22 +110,22 @@ export default function Books() {
     }
 
     // 4. Price slider
-    result = result.filter((b) => b.price <= maxPrice);
+    result = result.filter((b) => Number(b.price || 0) <= maxPrice);
 
     // 5. Rating selection
     if (minRating > 0) {
-      result = result.filter((b) => b.rating >= minRating);
+      result = result.filter((b) => Number(b.rating || 0) >= minRating);
     }
 
     // 6. Sorting logic
     if (sortBy === 'price-low') {
-      result.sort((a, b) => a.price - b.price);
+      result.sort((a, b) => Number(a.price || 0) - Number(b.price || 0));
     } else if (sortBy === 'price-high') {
-      result.sort((a, b) => b.price - a.price);
+      result.sort((a, b) => Number(b.price || 0) - Number(a.price || 0));
     } else if (sortBy === 'rating') {
-      result.sort((a, b) => b.rating - a.rating);
+      result.sort((a, b) => Number(b.rating || 0) - Number(a.rating || 0));
     } else if (sortBy === 'title') {
-      result.sort((a, b) => a.title.localeCompare(b.title));
+      result.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
     } else {
       // Default: featured first, then bestseller
       result.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
