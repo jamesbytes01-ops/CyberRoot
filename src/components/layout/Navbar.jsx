@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { 
-  ShoppingBag, Search, Menu, X, ShieldCheck, User, ChevronDown,
+  ShoppingBag, Search, Menu, X, User, ChevronDown,
   ShieldAlert, Terminal, FileText, HelpCircle 
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { Button } from '../ui/Button';
+import { CyberRootLogo } from '../ui/CyberRootLogo';
 
 export function Navbar() {
   const { cartCount } = useCart();
@@ -85,14 +86,7 @@ export function Navbar() {
     >
       <div className="w-full max-w-[95%] xl:max-w-[1600px] mx-auto px-4 md:px-8 flex items-center justify-between relative">
         {/* Logo left */}
-        <Link to="/" className="flex items-center gap-3 group shrink-0 whitespace-nowrap z-10">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/70 transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-            <ShieldCheck className="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
-          </div>
-          <span className="text-xl font-display font-semibold tracking-tight text-white group-hover:text-emerald-400 transition-colors whitespace-nowrap">
-            Cyber<span className="text-emerald-400">Root</span>
-          </span>
-        </Link>
+        <CyberRootLogo />
 
         {/* Menu center - Desktop in exact center */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10 whitespace-nowrap md:absolute md:left-1/2 md:-translate-x-1/2 z-10">

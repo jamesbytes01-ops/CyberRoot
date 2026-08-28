@@ -169,9 +169,9 @@ export default function AntivirusEducation() {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-medium text-white tracking-tight mb-6 leading-[1.15]">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-normal text-white tracking-tight mb-6 leading-[1.15]">
             Webroot Cloud Threat Intelligence &amp; <br />
-            <span className="text-emerald-400 font-semibold">Endpoint Security Architecture</span>
+            <span className="text-emerald-400 font-normal">Endpoint Security Architecture</span>
           </h1>
 
           <p className="text-base md:text-xl text-slate-300 font-normal leading-relaxed max-w-3xl mb-12">

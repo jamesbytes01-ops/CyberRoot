@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, ArrowRight, X, AlertTriangle, Scale, ShieldAlert, FileText, Map } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { CyberRootLogo } from '../ui/CyberRootLogo';
 
 export function Footer() {
   const [email, setEmail] = useState('');
@@ -34,14 +35,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-12">
         {/* Brand info */}
         <div className="lg:col-span-2 flex flex-col gap-5">
-          <Link to="/" className="flex items-center gap-2.5">
-            <div className="w-8.5 h-8.5 rounded-xl bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 border border-emerald-500/40 shadow-[0_0_12px_rgba(16,185,129,0.25)] flex items-center justify-center">
-              <ShieldCheck className="w-4.5 h-4.5 text-emerald-400 stroke-[2.2]" />
-            </div>
-            <span className="font-extrabold text-lg text-white tracking-tight">
-              Cyber<span className="text-emerald-400">Root</span>
-            </span>
-          </Link>
+          <CyberRootLogo size="md" />
           <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
             The world's premier online e-book platform and research hub for security engineers, threat analysts, Webroot researchers, and cybersecurity enthusiasts.
           </p>
