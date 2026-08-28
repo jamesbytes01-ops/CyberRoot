@@ -47,7 +47,7 @@ export default function About() {
         </div>
         <div className="lg:col-span-6">
           <p className="text-sm md:text-base text-slate-500 leading-relaxed">
-            Founded in 2026 under the umbrella of EAA Logi (powered by EAA Logistics), CyberRoot was established to address a persistent challenge: separating high-fidelity, production-grade cybersecurity knowledge from superficial tutorials. We aggregate, verify, and deliver the books that actual security professionals rely on. As an entirely independent organization, our recommendations remain unbiased and dedicated solely to the security community's growth.
+            Founded in 2026, CyberRoot was established to address a persistent challenge: separating high-fidelity, production-grade cybersecurity knowledge from superficial tutorials. We aggregate, verify, and deliver the books that actual security professionals rely on. As an entirely independent organization, our recommendations remain unbiased and dedicated solely to the security community's growth.
           </p>
         </div>
       </section>

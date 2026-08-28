@@ -185,7 +185,7 @@ const DOCS = {
     icon: <AlertTriangle className="w-8 h-8 text-accent" />,
     lastUpdated: "July 28, 2026",
     signee: "Corporate Communications",
-    content: `CyberRoot is an independent online educational platform and bookstore powered by EAA Logistics (Company Name - EAA Logi).
+    content: `CyberRoot is an independent online educational platform and bookstore.
 
     We are an independent organization and are not affiliated with, endorsed by, sponsored by, or officially connected with Microsoft, McAfee, Webroot, Norton, Bitdefender, Kaspersky, Cisco, Palo Alto Networks, CrowdStrike, Cloudflare, Google, or any other third-party organization.
     

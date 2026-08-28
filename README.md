@@ -1,16 +1,32 @@
-# React + Vite
+# CyberRoot - Open-Access Cybersecurity E-Book & Research Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+CyberRoot is an independent online educational platform and bookstore dedicated to curating high-fidelity, production-grade cybersecurity knowledge, open-access e-books, defensive playbooks, and research whitepapers for security engineers and researchers.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Open-Access E-Book Library**: Access complete field manuals, red team guides, and defensive architecture books.
+- **CVE Database**: Searchable database of real-time security vulnerabilities, severity scoring, and remediation guidance.
+- **Interactive Security Tools**: Built-in tools for Base64 encoding/decoding, Hash generation, and YARA rule generation.
+- **Legal & Compliance Standards**: Terms of service, privacy policy, security disclosure guidelines, and press resources.
+- **Cart & Checkout Workflow**: Seamless book ordering and instant PDF/EPUB download capability.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React 19, React Router v7
+- **Styling**: Tailwind CSS v4, Lucide React icons
+- **Build Tool**: Vite 8
+- **Form Validation**: React Hook Form & Zod
 
-## Expanding the Oxlint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+

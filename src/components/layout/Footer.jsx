@@ -185,7 +185,6 @@ export function Footer() {
 
           {/* Disclaimer */}
           <div className="text-xs text-slate-400 text-center max-w-4xl mx-auto leading-relaxed">
-            <span className="font-bold text-slate-300">Company Name - EAA Logi | Powered by EAA Logistics</span><br/><br/>
             CyberRoot is an independent online educational platform and e-book hub. We are an independent organization, not officially connected with Microsoft, McAfee, Webroot, Norton, Bitdefender, Kaspersky, Cisco, or any other third-party organization. All trademarks, logos, product names, and company names belong to their respective owners.
           </div>
         </div>
